@@ -362,7 +362,7 @@
    <div class="app-title">
     AI Chat TyoDR
    </div> 
-   <div class="model-selector-container"> <label for="modelName">Model:</label> <select id="modelName"> <option value="gemini-2.0-flash">gemini-2.0-flash</option> <option value="gemini-2.0-flash">gemini-2.5-flash</option> <option value="gemini-flash-latest">Gemini-Flash-Latest</option> </select> 
+   <div class="model-selector-container"> <label for="modelName">Model:</label> <select id="modelName"> <option value="gemini-2.0-flash">gemini-2.0-flash</option> <option value="gemini-2.0-flash">gemini-2.5-flash</option> <option value="gemini-flash-latest">gemini-flash-latest</option> </select> 
    </div> 
   </div> 
   <div class="main-content-area"> 
@@ -461,6 +461,11 @@
         showError("Prompt tidak boleh kosong.");
         return;
       }
+
+      // --- PERBAIKAN: KOSONGKAN INPUT SEGERA ---
+      typingInput.value = ""; 
+      if (sendMessageButton) sendMessageButton.disabled = true;
+      // ------------------------------------------
 
       showLoading(true);
 
